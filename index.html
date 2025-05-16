@@ -1,146 +1,101 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<title>basic :: Layout Test</title>
+<title>건축HUB</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap">
 <link rel="stylesheet" href="css/style.css">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script>
-$(document).ready(function(){
-	// tab
-	$(".tab").click(function(){
-		$("header nav").toggleClass("active");
-		$(".tab").toggleClass("close");
-		$("body").toggleClass("fixed");
-	});
-
-	// 투명화
-	let n=0;
-
-	$(".slider li").eq(n).addClass("active");
-
-	setInterval(function(){
-		if(n < 2){
-			n+=1;
-		}
-		else{
-			n=0;
-		}
-
-		$(".slider li").removeClass("active");
-		$(".slider li").eq(n).addClass("active");
-	}, 5000);
-
-	// pagination
-	let currentIndex=0;
-
-	const slideCount=$(".slider .slider_img ul li").length;
-
-	function sliderCountFunction(){
-		currentIndex = (currentIndex + 1) % slideCount;
-
-		$(".slider_btn .page li").text(`${currentIndex} / ${slideCount}`);
-	}
-
-	sliderCountFunction();
-
-	setInterval(sliderCountFunction, 5000);
-
-	// fm_site
-	$(".fm_site").click(function(){
-		const itemList=document.getElementById('itemList');
-
-		itemList.style.display = itemList.style.display === 'none' || itemList.style.display === '' ? 'block' : 'none';
-	});
-});
-</script>
+<script src="js/main.js"></script>
 </head>
 
 <body>
+<!-- 전체 컨테이너 -->
 <div class="container">
+	<!-- 헤더 -->
 	<header id="header">
-		<div class="header_top">
-			<div class="header_inner">
-				<div class="logo"><h1><a href=""><img src="img/logo.png" alt="logo"></a></h1></div>
-				<nav>
-					<ul>
-						<li>
-							<a href="">서비스 알아보기</a>
-							<ul class="sub">
-								<li></li>
-							</ul>
-						</li>
-						<li>
-							<a href="">서비스 모아보기</a>
-							<ul class="sub">
-								<li><a href="">한눈에 보는 설계공모</a></li>
-								<li><a href="">맞춤형 알림 입찰정보</a></li>
-								<li><a href="">원하는대로 건축데이터</a></li>
-								<li><a href="">알아두면 쓸데있는 지식정보</a></li>
-							</ul>
-						</li>
-						<li>
-							<a href="">빠른 서비스이동</a>
-							<ul class="sub">
-								<li><a href="">데이터로 분석하는 산업정보</a></li>
-								<li><a href="">진행중인 설계공모 조회</a></li>
-								<li><a href="">입찰정보 알림등록</a></li>
-								<li><a href="">맞춤형 건축정보 조회</a></li>
-								<li><a href="">지도로 보는 건축정보</a></li>
-							</ul>
-						</li>
-						<li>
-							<a href="">소식알기</a>
-							<ul class="sub">
-								<li><a href="">건축HUB소식</a></li>
-								<li><a href="">자료실</a></li>
-								<li><a href="">공지사항</a></li>
-								<li><a href="">자주하는질문</a></li>
-							</ul>
-						</li>
-					</ul>
-				</nav>
-				<div class="tab">
-					<a href="#"><span class="circle"></span></a>
-			 </div>
+		<div class="inner">
+			<div class="logo"><h1><a href=""><img src="images/logo.png" alt="logo"></a></h1></div>
+			<nav>
+				<ul>
+					<li>
+						<a href="">서비스 알아보기</a>
+						<ul class="sub">
+							<li></li>
+						</ul>
+					</li>
+					<li>
+						<a href="">서비스 모아보기</a>
+						<ul class="sub">
+							<li><a href="">한눈에 보는 설계공모</a></li>
+							<li><a href="">맞춤형 알림 입찰정보</a></li>
+							<li><a href="">원하는대로 건축데이터</a></li>
+							<li><a href="">알아두면 쓸데있는 지식정보</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="">빠른 서비스이동</a>
+						<ul class="sub">
+							<li><a href="">데이터로 분석하는 산업정보</a></li>
+							<li><a href="">진행중인 설계공모 조회</a></li>
+							<li><a href="">입찰정보 알림등록</a></li>
+							<li><a href="">맞춤형 건축정보 조회</a></li>
+							<li><a href="">지도로 보는 건축정보</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="">소식알기</a>
+						<ul class="sub">
+							<li><a href="">건축HUB소식</a></li>
+							<li><a href="">자료실</a></li>
+							<li><a href="">공지사항</a></li>
+							<li><a href="">자주하는질문</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<div class="tab">
+				<a href="#"><span class="tab_circle"></span></a>
 			</div>
 		</div>
 	</header>
-	<div class="slider">
-		<div class="slider_img">
-			<ul>	
-				<li><img src="img/slider_1.jpg" alt="Image 1" class="slide-image"></li>
-				<li><img src="img/slider_2.jpg" alt="Image 2" class="slide-image"></li>
-				<li><img src="img/slider_3.jpg" alt="Image 3" class="slide-image"></li>
-				<li><img src="img/slider_4.jpg" alt="Image 4" class="slide-image"></li>
+	<!-- 슬라이더 -->
+	<div class="visual_wrap">
+		<div class="controller">
+			<a href="" class="prev">previous</a>
+			<a href="" class="current">
+				<span class="num">1</span>
+				<!-- <svg viewBox="{min-x} {min-y} {width %} {height %}">  -->
+				<svg class="loader" viewBox="0 0 100 100">
+					<!-- <circle class="circle" cx="{center-x}" cy="{center-y}" r="{radius}"></circle> -->
+					<circle class="circle" cx="50" cy="50" r="45"></circle>
+				</svg>
+			</a>
+			<a href="" class="next">next</a>
+		</div>
+		<div class="slider">
+			<ul>
+				<li>slider1</li>
+				<li>slider2</li>
+				<li>slider3</li>
+				<li>slider4</li>
 			</ul>
 		</div>
-		<div class="inner">
+	</div>
+	<!-- 슬라이더 텍스트 -->
+	<div class="key_box">
+		<div class="key_inner">
 			<div class="keytext" id="displayText">
 				<h3>"나도 할 수 있을까?"</h3>
 				<strong>건축HUB와 함께라면, <br>가능합니다.</strong>
 			</div>
 		</div>
-		<div class="slider_btn">
-			<a href="">
-				<img src="img/timer.png" alt="timer">
-				<img src="img/slider_arrow.png" alt="arrow">
-				<div class="page">
-					<ul>
-						<li>1/4</li>
-						<!-- <li>2/4</li>
-						<li>3/4</li>
-						<li>4/4</li> -->
-					</ul>
-				</div>
-				<img src="img/slider_arrow.png" alt="arrow" id="right_arrow">
-			</a>
-		</div>
 	</div>
+	<!-- 콘텐츠 (서비스,뉴스) -->
 	<div class="contents">
+		<!-- 서비스 -->
 		<div id="service">
 			<div class="top">
 				<div class="title">
@@ -171,7 +126,7 @@ $(document).ready(function(){
 			</div>
 			<div class="content">
 				<div class="image">
-					<a href=""><img src="img/main_service.jpg" alt="main_service"></a>
+					<a href=""><img src="images/main_service.jpg" alt="main_service"></a>
 				</div>
 				<!-- text -->
 				<div class="text_box">
@@ -193,41 +148,39 @@ $(document).ready(function(){
 					</div>
 				</div>
 			</div>
-		<!-- news -->
+		<!-- 뉴스 -->
 		<div id="news">
 			<div class="top">
 				<div class="title"><h2><strong>건축HUB</strong>뉴스</h2></div>
 			</div>
-			<div class="content">
 				<ul>
 					<li>
 						<a href="">
-							<div class="pic"><img src="img/news_1.jpg" alt="news_1">
+							<div class="pic"><img src="images/news_1.jpg" alt="news_1">
 							</div>
 							<div class="desc">
 								<strong>[충청남도] 제17회「충남건축문화대전」개최 안내</strong>
-								<p><img src="img/icon_clock.png" alt="icon_clock"> 2024.07.11</p>
+								<p><img src="images/icon_clock.png" alt="icon_clock"> 2024.07.11</p>
 							</div>
 						</a>
 					</li>
 					<li>
 						<a href="">
-							<div class="pic"><img src="img/news_2.jpg" alt="news_2">
+							<div class="pic"><img src="images/news_2.jpg" alt="news_2">
 							</div>
 							<div class="desc">
 								<strong>[국토교통부] 2024 대한민국 공공건축상 공모</strong>
-								<p><img src="img/icon_clock.png" alt="icon_clock"> 2024.08.08</p>
+								<p><img src="images/icon_clock.png" alt="icon_clock"> 2024.08.08</p>
 							</div>
 						</a>
 					</li>
 					<li>
 						<a href="">
-							<div class="pic"><img src="img/news_3.jpg" alt="news_3">
+							<div class="pic"><img src="images/news_3.jpg" alt="news_3">
 							</div>
 							<div class="desc">
 								<strong>맞춤형 알림 입찰정보 서비스를 소개합니다!</strong>
-									<p><img src="img/icon_clock.png" alt="icon_clock"> 2024.05.14</p>
-								</div>
+								<p><img src="images/icon_clock.png" alt="icon_clock"> 2024.05.14</p>
 							</div>
 						</a>
 					</li>
@@ -235,160 +188,160 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</div>	
-		<!-- notice -->
-		<div id="notice">
-			<div class="main_inner">
-				<div class="top">
-					<div class="title">
-					<h2><strong>공지</strong>사항</h2>
-					</div>
-					<a href="" class="button-arrow">
-						<span>더보기</span>
+	<!-- 공지사항 -->
+	<div id="notice">
+		<div class="main_inner">
+			<div class="top">
+				<div class="title">
+				<h2><strong>공지</strong>사항</h2>
+				</div>
+				<a href="" class="button-arrow">
+					<span>더보기</span>
+				</a>
+			</div>
+			<div class="body">
+				<ul>
+					<a class="box" href="">
+						<div class="number">1</div>
+						<div class="info">
+							<div class="article">
+								<strong>[중요] 건축 HUB 홈페이지 디자인 리뉴얼</strong>
+								<p><img src="images/icon_clock.png" alt="icon_clock"> 2025.02.28</p>
+							</div>
+							<div class="icon">
+								<img src="images/notice_arrow.png" alt="notice_arrow">
+							</div>
+						</div>
 					</a>
-				</div>
-				<div class="body">
-					<ul>
-						<a class="box" href="">
-							<div class="number">1</div>
-							<div class="info">
-								<div class="article">
-									<strong>[중요] 건축 HUB 홈페이지 디자인 리뉴얼</strong>
-									<p><img src="img/icon_clock.png" alt="icon_clock"> 2025.02.28</p>
-								</div>
-								<div class="icon">
-									<img src="img/notice_arrow.png" alt="notice_arrow">
-								</div>
+					<a class="box" href="">
+						<div class="number">2</div>
+						<div class="info">
+							<div class="article">
+								<strong>[건축 설계공모 정보서비스] 공공기관 이용절차 안내</strong>
+								<p><img src="images/icon_clock.png" alt="icon_clock"> 2024.03.31</p>
 							</div>
-						</a>
-						<a class="box" href="">
-							<div class="number">2</div>
-							<div class="info">
-								<div class="article">
-									<strong>[건축 설계공모 정보서비스] 공공기관 이용절차 안내</strong>
-									<p><img src="img/icon_clock.png" alt="icon_clock"> 2024.03.31</p>
-								</div>
-								<div class="icon">
-									<img src="img/notice_arrow.png" alt="notice_arrow">
-								</div>
+							<div class="icon">
+								<img src="images/notice_arrow.png" alt="notice_arrow">
 							</div>
-						</a>
-						<a class="box" href="">
-							<div class="number">3</div>
-							<div class="info">
-								<div class="article">
-									<strong>[건축 설계공모 정보서비스] 심사위원으로 지원해주세요!</strong>
-									<p><img src="img/icon_clock.png" alt="icon_clock"> 2024-04-04</p>
-								</div>
-								<div class="icon">
-									<img src="img/notice_arrow.png" alt="notice_arrow">
-								</div>
+						</div>
+					</a>
+					<a class="box" href="">
+						<div class="number">3</div>
+						<div class="info">
+							<div class="article">
+								<strong>[건축 설계공모 정보서비스] 심사위원으로 지원해주세요!</strong>
+								<p><img src="images/icon_clock.png" alt="icon_clock"> 2024-04-04</p>
 							</div>
-						</a>
-						<a class="box" href="">
-							<div class="number">4</div>
-							<div class="info">
-								<div class="article">
-									<strong>[중요] 서비스 이용약관 변경 안내</strong>
-									<p><img src="img/icon_clock.png" alt="icon_clock"> 2024-04-01</p>
-								</div>
-								<div class="icon">
-									<img src="img/notice_arrow.png" alt="notice_arrow">
-								</div>
+							<div class="icon">
+								<img src="images/notice_arrow.png" alt="notice_arrow">
 							</div>
-						</a>
-					</ul>
-				</div>
+						</div>
+					</a>
+					<a class="box" href="">
+						<div class="number">4</div>
+						<div class="info">
+							<div class="article">
+								<strong>[중요] 서비스 이용약관 변경 안내</strong>
+								<p><img src="images/icon_clock.png" alt="icon_clock"> 2024-04-01</p>
+							</div>
+							<div class="icon">
+								<img src="images/notice_arrow.png" alt="notice_arrow">
+							</div>
+						</div>
+					</a>
+				</ul>
 			</div>
 		</div>
-		<!-- banner -->
-		<div id="banner">
-			<div class="main_inner">
-				<div class="left">
-					<div class="title">
-						<h2>바른정보 <br><strong>빠른 서비스</strong></h2>
-					</div>
-					<div class="text">
-						<span>공간을 창조하고 생활을 디자인하며 이윽고 모두가 행복하고 <br>
-							안전한 삶을 향유하도록 만드는 것은 건축의 사명입니다. <br>
-							대한민국 건축의 발전과 희망의 길에, 여러분의 관심과 도움으로 <br>
-							오늘도 또 한걸음 나아갑니다.</span>
-					</div>
+	</div>
+	<!-- 배너 -->
+	<div id="banner">
+		<div class="main_inner">
+			<div class="left">
+				<div class="title">
+					<h2>바른정보 <br><strong>빠른 서비스</strong></h2>
 				</div>
-				<div class="right">
-					<ul>
-						<li>
-							<a class="box" href="">
-								<div class="img4"></div>
-								<div class="text_wrap">
-									<p class="title">데이터 정보</p>
-									<p class="text">데이터로 분석하는 산업정보를 통해 <br>건축의 전망과 산업과의 연광성을 알아보세요!</p>
-								</div>
-								<span class="link">바로가기<img src="" alt=""></span>
-							</a>
-						</li>
-						<li>
-							<a class="box" href="">
-								<div class="img5"></div>
-								<div class="text_wrap">
-									<p class="title">입찰 알림등록</p>
-									<p class="text">
-										누구보다 빠르게 입찰 정보를 알고 <br>싶으신가요?알림 등록을 신청하여 <br>
-										편하고 빠르게 소식을 접해보세요!
-									</p>
-								</div>
-								<span class="link">바로가기<img src="" alt=""></span>
-							</a>
-						</li>
-						<li>
-							<a class="box" href="">
-								<div class="img6"></div>
-								<div class="text_wrap">
-									<p class="title">설계공모 조회</p>
-									<p class="text">여러분의 빛나는 재능과 아이디어로 <br>공모에 희망의 빛으로 밝혀주세요!</p>
-								</div>
-								<span class="link">바로가기<img src="" alt=""></span>
-							</a>
-						</li>
-						<li>
-							<a class="box" href="">
-								<div class="img7"></div>
-								<div class="text_wrap">
-									<p class="title">맞춤형 건축정보</p>
-									<p class="text">카테고리 선택으로 간단하고 빠르게 <br>찾고 계시는 건축정보를 맞춤형으로 <br>조회해보실 수 있습니다!</p>
-								</div>
-								<span class="link">바로가기<img src="" alt=""></span>
-							</a>
-						</li>
-					</ul>
+				<div class="text">
+					<span>공간을 창조하고 생활을 디자인하며 이윽고 모두가 행복하고 <br>
+						안전한 삶을 향유하도록 만드는 것은 건축의 사명입니다. <br>
+						대한민국 건축의 발전과 희망의 길에, 여러분의 관심과 도움으로 <br>
+						오늘도 또 한걸음 나아갑니다.</span>
 				</div>
 			</div>
+			<div class="right">
+				<ul>
+					<li>
+						<a class="box" href="">
+							<div class="img4"></div>
+							<div class="text_wrap">
+								<p class="title">데이터 정보</p>
+								<p class="text">데이터로 분석하는 산업정보를 통해 <br>건축의 전망과 산업과의 연광성을 알아보세요!</p>
+							</div>
+							<span class="link">바로가기<img src="" alt=""></span>
+						</a>
+					</li>
+					<li>
+						<a class="box" href="">
+							<div class="img5"></div>
+							<div class="text_wrap">
+								<p class="title">입찰 알림등록</p>
+								<p class="text">
+									누구보다 빠르게 입찰 정보를 알고 <br>싶으신가요?알림 등록을 신청하여 <br>
+									편하고 빠르게 소식을 접해보세요!
+								</p>
+							</div>
+							<span class="link">바로가기<img src="" alt=""></span>
+						</a>
+					</li>
+					<li>
+						<a class="box" href="">
+							<div class="img6"></div>
+							<div class="text_wrap">
+								<p class="title">설계공모 조회</p>
+								<p class="text">여러분의 빛나는 재능과 아이디어로 <br>공모에 희망의 빛으로 밝혀주세요!</p>
+							</div>
+							<span class="link">바로가기<img src="" alt=""></span>
+						</a>
+					</li>
+					<li>
+						<a class="box" href="">
+							<div class="img7"></div>
+							<div class="text_wrap">
+								<p class="title">맞춤형 건축정보</p>
+								<p class="text">카테고리 선택으로 간단하고 빠르게 <br>찾고 계시는 건축정보를 맞춤형으로 <br>조회해보실 수 있습니다!</p>
+							</div>
+							<span class="link">바로가기<img src="" alt=""></span>
+						</a>
+					</li>
+				</ul>
+			</div>
 		</div>
-	
+	</div>
+	<!-- 푸터 -->
 	<footer id="footer">
 		<div class="ft_inner">
 			<div class="ft_top">
 				<div class="ft_logo">
-					<a href=""><img src="img/ft_logo(notxt).png" alt="ft_logo"></a></div>
+					<a href=""><img src="images/ft_logo(notxt).png" alt="ft_logo"></a></div>
 				<div class="sns">
 					<ul>
 						<li>
 							<a href="">
-								<img src="img/icon_goldkey.png" alt="icon_goldkey">
+								<img src="images/icon_goldkey.png" alt="icon_goldkey">
 							</a>
 						</li>
 						<li>
 							<a href="">
-								<img src="img/icon_location.png" alt="icon_location">
+								<img src="images/icon_location.png" alt="icon_location">
 							</a>
 						</li>
 						<li>
 							<a href="">
-								<img src="img/icon_instagram.png" alt="icon_instagram">
+								<img src="images/icon_instagram.png" alt="icon_instagram">
 							</a>
 						</li>
 						<li>
 							<a href="">
-								<img src="img/icon_youtube.png" alt="icon_youtube">
+								<img src="images/icon_youtube.png" alt="icon_youtube">
 							</a>
 						</li>
 					</ul>
