@@ -1279,7 +1279,8 @@ p {
 		margin-top: 225px;
 	}
 	#footer .ft_bot span.copyright {
-		margin-top: 100px;
+		margin-top: 20px;
 		font-size: 0.25em;
+		display: block;
 	}
 }	
