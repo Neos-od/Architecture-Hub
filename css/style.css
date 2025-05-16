@@ -31,6 +31,19 @@ body {
 body.fixed {
 	overflow: hidden;
 }
+body::-webkit-scrollbar {
+	width: 10px;  /* 스크롤바의 너비 */
+}
+
+body::-webkit-scrollbar-thumb {
+	height: 3%; /* 스크롤바의 길이 */
+	background-color: #999;
+	border-radius: 5px;
+}
+
+body::-webkit-scrollbar-track {
+	background: #fff;  /*스크롤바 뒷 배경 색상*/
+}
 
 
 /* 헤더 */
@@ -1283,4 +1296,33 @@ p {
 		font-size: 0.25em;
 		display: block;
 	}
-}	
+}
+
+/* 위로 가는 버튼 */
+#goingTop {
+	position: fixed;
+	right: 4%;
+	bottom: 8%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	border: none;
+	background-color: #1e2753;
+	color: #fff;
+	font-size: 1.625em;
+	font-weight: 900;
+	box-shadow: 0px 0px 6px #fff;
+	cursor: pointer;
+	z-index: 200;
+}
+
+@media only screen and (max-width: 1020px) {
+	#goingTop {
+		right: 3.5%;
+		width: 40px;
+		height: 40px;
+	}
+}
