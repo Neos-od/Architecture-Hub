@@ -29,20 +29,23 @@ body {
 	overflow-x:hidden;
 }
 body.fixed {
-	overflow: hidden;
+	overflow-y: hidden;
+	height: 100vh;
+	position: relative;
 }
+
 body::-webkit-scrollbar {
-	width: 10px;  /* 스크롤바의 너비 */
+	width: 10px;
 }
 
 body::-webkit-scrollbar-thumb {
-	height: 3%; /* 스크롤바의 길이 */
+	height: 3%;
 	background-color: #999;
 	border-radius: 5px;
 }
 
 body::-webkit-scrollbar-track {
-	background: #fff;  /*스크롤바 뒷 배경 색상*/
+	background: #fff;
 }
 
 
